@@ -66,22 +66,28 @@ app.MapGet("/health", () => new {
 });
 
 // Add an info endpoint
-app.MapGet("/info", () => new { 
+app.MapGet("/info", () => new
+{
     name = "Records Mock Data MCP Server",
     description = "MCP server providing access to work orders and inspection status data through OData endpoints",
     version = "1.0.0",
-    endpoints = new {
+    endpoints = new
+    {
         mcp = "/sse",
         health = "/health",
         info = "/info"
     },
-    tools = new {
+    tools = new
+    {
         workOrders = 8,
         inspectionStatus = 6,
         metadata = 3,
         testing = 2
     }
 });
+
+// MCP Server endpoint for SSE
+app.MapMcp();
 
 // Start the server
 var port = builder.Configuration.GetValue<int>("Port", 3001);
@@ -90,9 +96,6 @@ app.Urls.Add($"http://localhost:{port}");
 app.Logger.LogInformation("Starting MCP Server on http://localhost:{Port}", port);
 app.Logger.LogInformation("MCP SSE endpoint available at: http://localhost:{Port}/sse", port);
 app.Logger.LogInformation("Health check available at: http://localhost:{Port}/health", port);
-
-app.MapMcp();
-app.Logger.LogInformation("MCP Server is ready to accept connections.");
 
 await app.RunAsync();
 
