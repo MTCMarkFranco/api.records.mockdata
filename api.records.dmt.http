@@ -1,0 +1,6 @@
+@api.records.mockdata_HostAddress = http://localhost:5044
+
+GET {{api.records.mockdata_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
