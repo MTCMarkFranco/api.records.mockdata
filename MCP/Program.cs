@@ -6,6 +6,7 @@ using MCPServer.Tools;
 using MCPServer.Resources;
 using MCPServer.Prompts;
 using System.ComponentModel;
+using ModelContextProtocol.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -89,6 +90,9 @@ app.Urls.Add($"http://localhost:{port}");
 app.Logger.LogInformation("Starting MCP Server on http://localhost:{Port}", port);
 app.Logger.LogInformation("MCP SSE endpoint available at: http://localhost:{Port}/sse", port);
 app.Logger.LogInformation("Health check available at: http://localhost:{Port}/health", port);
+
+app.MapMcp();
+app.Logger.LogInformation("MCP Server is ready to accept connections.");
 
 await app.RunAsync();
 
