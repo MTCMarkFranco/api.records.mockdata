@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "records-mockdata": {
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "f:\\Projects\\api.records.mockdata\\MCP\\MCPServer.csproj"
+      ],
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

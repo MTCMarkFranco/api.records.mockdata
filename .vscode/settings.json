@@ -1,0 +1,15 @@
+{
+  "github.copilot.chat.experimental.mcp.servers": {
+    "records-mockdata": {
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "./MCP/MCPServer.csproj"
+      ],
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
